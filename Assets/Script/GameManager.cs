@@ -19,21 +19,58 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<SliderNote> partTwo = new List<SliderNote>();
     [SerializeField] private List<SliderNote> partThree = new List<SliderNote>();
 
+    public int difPartOne = 0, difPartTwo = 0, diffPartThree;
+
     private void OnDrawGizmos()
     {
-        foreach (SliderNote note in partOne)
+        difPartOne = 0;
+        difPartTwo = 0;
+        diffPartThree = 0;
+
+        DrawNotes(partOne, 0, ref difPartOne);
+        DrawNotes(partTwo, difPartOne, ref difPartTwo);
+        DrawNotes(partThree, difPartOne + difPartTwo, ref diffPartThree);
+    }
+
+    private void DrawNotes(List<SliderNote> listNote, int valToAdd, ref int Diff)
+    {
+        foreach (SliderNote note in listNote)
         {
-            GameObject slider = slidersObject[note.sliderChoose - 1];
-            Slider sliderCompo = slider.GetComponent<Slider>();
-            RectTransform sliderRect = slider.GetComponent<RectTransform>();
+            Color color = GetNoteColor(note.sliderChoose);
+            if (color != Color.white)
+            {
+                GameObject slider = slidersObject[note.sliderChoose - 1];
+                Slider sliderCompo = slider.GetComponent<Slider>();
+                RectTransform sliderRect = slider.GetComponent<RectTransform>();
 
-            float percent = note.value / sliderCompo.maxValue;
-            float dist  = sliderRect.rect.width * percent;
-            Vector3 dir = Quaternion.AngleAxis(sliderRect.eulerAngles.z, Vector3.forward) * -transform.right;
-            Vector3 notePoint = slider.transform.position + dir * dist;
+                float percent = (note.value + valToAdd) / sliderCompo.maxValue;
+                float dist = sliderRect.rect.width * percent;
+                Vector3 dir = Quaternion.AngleAxis(sliderRect.eulerAngles.z, Vector3.forward) * -transform.right;
+                Vector3 notePoint = slider.transform.position + dir * dist;
 
-            Gizmos.color = Color.yellow;    
-            Gizmos.DrawCube(notePoint, new Vector3(10, 10, 1));
+                Gizmos.color = color;
+                Gizmos.DrawCube(notePoint, new Vector3(10, 10, 1));
+
+                if (note.value > Diff)
+                    Diff = note.value;
+            }
+        }
+    }
+
+    private Color GetNoteColor(int sliderChoose)
+    {
+        switch (sliderChoose)
+        {
+            case 1:
+                return Color.yellow;
+            case 2:
+                return Color.blue;
+            case 3:
+                return Color.green;
+            case 4:
+                return Color.red;
+            default:
+                return Color.white;
         }
     }
 }
