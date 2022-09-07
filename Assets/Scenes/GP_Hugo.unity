@@ -1306,6 +1306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1434417117}
   - component: {fileID: 1434417116}
+  - component: {fileID: 1434417118}
   m_Layer: 0
   m_Name: ---GameManager---
   m_TagString: Untagged
@@ -1330,24 +1331,16 @@ MonoBehaviour:
   - {fileID: 422368577}
   - {fileID: 606603074}
   - {fileID: 795392079}
+  speed: 1
   partOne:
   - sliderChoose: 1
-    value: 537
   - sliderChoose: 2
-    value: 867
   - sliderChoose: 3
-    value: 714
   - sliderChoose: 4
-    value: 400
   - sliderChoose: 4
-    value: 761
   partTwo:
   - sliderChoose: 2
-    value: 200
   partThree: []
-  difPartOne: 867
-  difPartTwo: 200
-  diffPartThree: 0
 --- !u!4 &1434417117
 Transform:
   m_ObjectHideFlags: 0
@@ -1362,6 +1355,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1434417118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434417115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d74f4a0f93ac941a2e6c7a47dc2de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TopRightSlider: {fileID: 3292026061762302516, guid: 0aef6abe3bc4dbc49b1fa413b603fd18, type: 3}
+  BottomRightSlider: {fileID: 5939865135464174780, guid: 79c270f8067523841b71af33f90fd50d, type: 3}
+  TopLeftSlider: {fileID: 4336790293720303254, guid: c5bb69ae2b8939646a2d35ce6f90e09b, type: 3}
+  BottomLeftSlider: {fileID: 7308571596703398667, guid: ebc17ab40dbab084eaca891c8df2bb04, type: 3}
 --- !u!1 &1509228876
 GameObject:
   m_ObjectHideFlags: 0
