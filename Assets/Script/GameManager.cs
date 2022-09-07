@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class SliderNote
 {
     public int sliderChoose;
-    private float valueNote;
+    public float valueNote;
     public float ValueNote { get { return valueNote; } set { valueNote = value; } }
 }
 
