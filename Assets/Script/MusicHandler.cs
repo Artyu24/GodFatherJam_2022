@@ -21,16 +21,24 @@ public class MusicHandler : MonoBehaviour
 
         fourBars = (bpm / clipDuration) * 4f;
 
+        Slider sliderCompo = slider.GetComponent<Slider>();
+        RectTransform sliderRect = slider.GetComponent<RectTransform>();
+
         for (int i = 0; i < bpm; i++)
         {
-            Vector3 breakPoint = new Vector3(0f, i * fourBars, 0f);
+
+            Vector3 dir = Quaternion.AngleAxis(sliderRect.eulerAngles.z, Vector3.forward) * -transform.right;
+            Vector3 breakPoint = slider.transform.position + dir *  (i * fourBars * 4f);
+
             Gizmos.color = Color.magenta;
-            Gizmos.DrawCube(breakPoint, new Vector3(5, 5, 1));
+            Gizmos.DrawCube(breakPoint, new Vector3(10, 10, 1));
         }
 
-        //    Slider sliderCompo = slider.GetComponent<Slider>();
-        //    RectTransform sliderRect = slider.GetComponent<RectTransform>();
-        //    float percent = value / sliderCompo.maxValue;
+
+
+        //Slider sliderCompo = slider.GetComponent<Slider>();
+        //RectTransform sliderRect = slider.GetComponent<RectTransform>();
+        //float percent = value / sliderCompo.maxValue;
 
         //    float dist = sliderRect.rect.width * percent;
 
