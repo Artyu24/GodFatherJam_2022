@@ -12,6 +12,8 @@ public class SliderNote
     public int sliderChoose;
     public float valueNote;
     public float ValueNote { get { return valueNote; } set { valueNote = value; } }
+    private Vector2 notePos;
+    public Vector2 NotePos { get { return notePos; } set { notePos = value; } }
 }
 
 public class GameManager : MonoBehaviour
