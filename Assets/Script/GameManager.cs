@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class SliderNote
 {
     public int sliderChoose;
-    private float valueNote;
+    public float valueNote;
     public float ValueNote { get { return valueNote; } set { valueNote = value; } }
 }
 
@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<SliderNote> partOne = new List<SliderNote>();
     [SerializeField] private List<SliderNote> partTwo = new List<SliderNote>();
     [SerializeField] private List<SliderNote> partThree = new List<SliderNote>();
+
+    public List<SliderNote> PartOne { get { return partOne; } }
+    public List<SliderNote> PartTwo { get { return partTwo; } }
+    public List<SliderNote> PartThree { get { return partThree; } }
 
     private void Start()
     {
