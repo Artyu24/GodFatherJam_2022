@@ -735,8 +735,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06146a118a85f74d8dd87e3c48154a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 144
+  bpm: 94.6
+  bps: 0
   slider: {fileID: 1341625437}
+  value: 0
+  clip: {fileID: 8300000, guid: 447b91625161c944e86becb9b510abe6, type: 3}
 --- !u!1 &1604978750
 GameObject:
   m_ObjectHideFlags: 0

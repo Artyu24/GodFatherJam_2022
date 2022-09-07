@@ -24,7 +24,7 @@ public class MusicHandler : MonoBehaviour
         for (int i = 0; i < bpm; i++)
         {
             Vector3 breakPoint = new Vector3(0f, i * fourBars, 0f);
-            Gizmos.color = Color.green;
+            Gizmos.color = Color.magenta;
             Gizmos.DrawCube(breakPoint, new Vector3(5, 5, 1));
         }
 
