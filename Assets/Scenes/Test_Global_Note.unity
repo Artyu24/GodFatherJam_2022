@@ -229,10 +229,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 96
-  bps: 0
   slider: {fileID: 1341625437}
-  value: 0
   clip: {fileID: 8300000, guid: 447b91625161c944e86becb9b510abe6, type: 3}
+  physicalLength: 524.9216
 --- !u!82 &152322631
 AudioSource:
   m_ObjectHideFlags: 0
@@ -243,7 +242,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 447b91625161c944e86becb9b510abe6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4aa24f0944b3ffa4e9956d4ccf96489a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1478,17 +1477,43 @@ MonoBehaviour:
   speed: 50
   partOne:
   - sliderChoose: 1
-    valueNote: 500
+    valueNote: 373
   - sliderChoose: 2
-    valueNote: 400
+    valueNote: 406.9
   - sliderChoose: 3
-    valueNote: 300
+    valueNote: 440.9
   - sliderChoose: 4
-    valueNote: 750
+    valueNote: 474.8
   - sliderChoose: 4
-    valueNote: 546
+    valueNote: 510.3
   - sliderChoose: 1
-    valueNote: 300
+    valueNote: 543.8
+  - sliderChoose: 2
+    valueNote: 577.2
+  - sliderChoose: 3
+    valueNote: 610.94
+  - sliderChoose: 2
+    valueNote: 644.8
+  - sliderChoose: 2
+    valueNote: 679.7
+  - sliderChoose: 2
+    valueNote: 713.66
+  - sliderChoose: 1
+    valueNote: 746.6
+  - sliderChoose: 2
+    valueNote: 779.4
+  - sliderChoose: 3
+    valueNote: 814.8
+  - sliderChoose: 3
+    valueNote: 849.4
+  - sliderChoose: 3
+    valueNote: 882.7
+  - sliderChoose: 3
+    valueNote: 917.6
+  - sliderChoose: 3
+    valueNote: 950.8
+  - sliderChoose: 3
+    valueNote: 985
   partTwo:
   - sliderChoose: 4
     valueNote: 30.38

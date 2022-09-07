@@ -7,10 +7,8 @@ using UnityEngine.UI;
 public class MusicHandler : MonoBehaviour
 {
     public float bpm;
-    public float bps;
 
     [SerializeField] GameObject slider; 
-    public float value;
     public AudioClip clip;
     float clipDuration;
     float fourBars;
@@ -30,7 +28,7 @@ public class MusicHandler : MonoBehaviour
         for (int i = 0; i < bpm; i++)
         {
 
-            Vector3 dir = Quaternion.AngleAxis(sliderRect.eulerAngles.z, Vector3.forward) * -transform.right;
+            Vector3 dir = Quaternion.AngleAxis(sliderRect.eulerAngles.z, Vector3.forward) * - transform.right;
             Vector3 breakPoint = slider.transform.position + dir *  (i * fourBars * 4f);
 
             Gizmos.color = Color.magenta;
@@ -38,7 +36,6 @@ public class MusicHandler : MonoBehaviour
 
             physicalLength += fourBars;
         }
-
 
 
         //Slider sliderCompo = slider.GetComponent<Slider>();
@@ -53,5 +50,9 @@ public class MusicHandler : MonoBehaviour
         //    Gizmos.color = Color.yellow;
         //    Gizmos.DrawCube(beatPoint, new Vector3(10, 10, 1));
         //}
+    }
+    void Update()
+    {
+        
     }
 }
