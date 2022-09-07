@@ -1330,24 +1330,22 @@ MonoBehaviour:
   - {fileID: 422368577}
   - {fileID: 606603074}
   - {fileID: 795392079}
+  speed: 0.000002
   partOne:
   - sliderChoose: 1
-    value: 537
+    valueNote: 500
   - sliderChoose: 2
-    value: 867
+    valueNote: 400
   - sliderChoose: 3
-    value: 714
+    valueNote: 300
   - sliderChoose: 4
-    value: 400
+    valueNote: 750
   - sliderChoose: 4
-    value: 761
+    valueNote: 546
   partTwo:
   - sliderChoose: 2
-    value: 200
+    valueNote: 370500
   partThree: []
-  difPartOne: 867
-  difPartTwo: 200
-  diffPartThree: 0
 --- !u!4 &1434417117
 Transform:
   m_ObjectHideFlags: 0

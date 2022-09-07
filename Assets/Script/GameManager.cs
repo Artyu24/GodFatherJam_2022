@@ -1,25 +1,43 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+
+[System.Serializable]
+public class SliderNote
+{
+    public int sliderChoose;
+    public float valueNote;
+    public float ValueNote { get { return valueNote; } set { valueNote = value; } }
+}
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> slidersObject =  new List<GameObject>();
-
-    [System.Serializable]
-    struct SliderNote
-    {
-        public int sliderChoose;
-        public int value;
-    }
+    private float difPartOne = 0, difPartTwo = 0, diffPartThree;
+    [SerializeField] private float speed = 1;
 
     [SerializeField] private List<SliderNote> partOne = new List<SliderNote>();
     [SerializeField] private List<SliderNote> partTwo = new List<SliderNote>();
     [SerializeField] private List<SliderNote> partThree = new List<SliderNote>();
 
-    public int difPartOne = 0, difPartTwo = 0, diffPartThree;
+    private void Update()
+    {
+        foreach (SliderNote note in partOne)
+        {
+            note.ValueNote -= speed * Time.deltaTime;
+        }
+        foreach (SliderNote note in partTwo)
+        {
+            note.ValueNote -= speed * Time.deltaTime;
+        }
+        foreach (SliderNote note in partThree)
+        {
+            note.ValueNote -= speed * Time.deltaTime;
+        }
+    }
 
     private void OnDrawGizmos()
     {
@@ -32,7 +50,7 @@ public class GameManager : MonoBehaviour
         DrawNotes(partThree, difPartOne + difPartTwo, ref diffPartThree);
     }
 
-    private void DrawNotes(List<SliderNote> listNote, int valToAdd, ref int Diff)
+    private void DrawNotes(List<SliderNote> listNote, float valToAdd, ref float Diff)
     {
         foreach (SliderNote note in listNote)
         {
@@ -43,7 +61,7 @@ public class GameManager : MonoBehaviour
                 Slider sliderCompo = slider.GetComponent<Slider>();
                 RectTransform sliderRect = slider.GetComponent<RectTransform>();
 
-                float percent = (note.value + valToAdd) / sliderCompo.maxValue;
+                float percent = (note.valueNote + valToAdd) / sliderCompo.maxValue;
                 float dist = sliderRect.rect.width * percent;
                 Vector3 dir = Quaternion.AngleAxis(sliderRect.eulerAngles.z, Vector3.forward) * -transform.right;
                 Vector3 notePoint = slider.transform.position + dir * dist;
@@ -51,8 +69,8 @@ public class GameManager : MonoBehaviour
                 Gizmos.color = color;
                 Gizmos.DrawCube(notePoint, new Vector3(10, 10, 1));
 
-                if (note.value > Diff)
-                    Diff = note.value;
+                if (note.valueNote > Diff)
+                    Diff = note.valueNote;
             }
         }
     }
