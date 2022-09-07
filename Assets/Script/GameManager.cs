@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<SliderNote> partTwo = new List<SliderNote>();
     [SerializeField] private List<SliderNote> partThree = new List<SliderNote>();
 
+    public List<SliderNote> PartOne { get { return partOne; } }
+    public List<SliderNote> PartTwo { get { return partTwo; } }
+    public List<SliderNote> PartThree { get { return partThree; } }
+
     private void Start()
     {
         foreach (SliderNote note in partOne)
