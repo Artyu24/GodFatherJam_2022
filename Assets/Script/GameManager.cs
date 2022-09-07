@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,12 +17,32 @@ public class SliderNote
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> slidersObject =  new List<GameObject>();
-    private float difPartOne = 0, difPartTwo = 0, diffPartThree;
+    private float difPartOne = 0, difPartTwo = 0, difPartThree;
     [SerializeField] private float speed = 1;
 
     [SerializeField] private List<SliderNote> partOne = new List<SliderNote>();
     [SerializeField] private List<SliderNote> partTwo = new List<SliderNote>();
     [SerializeField] private List<SliderNote> partThree = new List<SliderNote>();
+
+    private void Start()
+    {
+        foreach (SliderNote note in partOne)
+        {
+            if (note.valueNote > difPartOne)
+                difPartOne = note.valueNote;
+        }
+
+        foreach (SliderNote note in partTwo)
+        {
+            if (note.valueNote > difPartTwo)
+                difPartTwo = note.valueNote;
+
+            note.ValueNote += difPartOne;
+        }
+
+        foreach (SliderNote note in partThree)
+            note.ValueNote += difPartOne + difPartTwo;
+    }
 
     private void Update()
     {
@@ -43,11 +64,11 @@ public class GameManager : MonoBehaviour
     {
         difPartOne = 0;
         difPartTwo = 0;
-        diffPartThree = 0;
+        difPartThree = 0;
 
         DrawNotes(partOne, 0, ref difPartOne);
         DrawNotes(partTwo, difPartOne, ref difPartTwo);
-        DrawNotes(partThree, difPartOne + difPartTwo, ref diffPartThree);
+        DrawNotes(partThree, difPartOne + difPartTwo, ref difPartThree);
     }
 
     private void DrawNotes(List<SliderNote> listNote, float valToAdd, ref float Diff)
@@ -62,6 +83,9 @@ public class GameManager : MonoBehaviour
                 RectTransform sliderRect = slider.GetComponent<RectTransform>();
 
                 float percent = (note.valueNote + valToAdd) / sliderCompo.maxValue;
+                if(Application.isPlaying)
+                    percent = note.valueNote / sliderCompo.maxValue;
+
                 float dist = sliderRect.rect.width * percent;
                 Vector3 dir = Quaternion.AngleAxis(sliderRect.eulerAngles.z, Vector3.forward) * -transform.right;
                 Vector3 notePoint = slider.transform.position + dir * dist;
