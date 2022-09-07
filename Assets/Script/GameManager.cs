@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> slidersObject =  new List<GameObject>();
+    [SerializeField] private List<GameObject> slidersObject = new List<GameObject>();
 
     [System.Serializable]
     struct SliderNote
@@ -28,11 +28,11 @@ public class GameManager : MonoBehaviour
             RectTransform sliderRect = slider.GetComponent<RectTransform>();
 
             float percent = note.value / sliderCompo.maxValue;
-            float dist  = sliderRect.rect.width * percent;
+            float dist = sliderRect.rect.width * percent;
             Vector3 dir = Quaternion.AngleAxis(sliderRect.eulerAngles.z, Vector3.forward) * -transform.right;
             Vector3 notePoint = slider.transform.position + dir * dist;
 
-            Gizmos.color = Color.yellow;    
+            Gizmos.color = Color.yellow;
             Gizmos.DrawCube(notePoint, new Vector3(10, 10, 1));
         }
     }
