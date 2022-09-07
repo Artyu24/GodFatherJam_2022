@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class SliderNote
 {
     public int sliderChoose;
-    public float valueNote;
+    private float valueNote;
     public float ValueNote { get { return valueNote; } set { valueNote = value; } }
 }
 
@@ -28,14 +28,14 @@ public class GameManager : MonoBehaviour
     {
         foreach (SliderNote note in partOne)
         {
-            if (note.valueNote > difPartOne)
-                difPartOne = note.valueNote;
+            if (note.ValueNote > difPartOne)
+                difPartOne = note.ValueNote;
         }
 
         foreach (SliderNote note in partTwo)
         {
-            if (note.valueNote > difPartTwo)
-                difPartTwo = note.valueNote;
+            if (note.ValueNote > difPartTwo)
+                difPartTwo = note.ValueNote;
 
             note.ValueNote += difPartOne;
         }
@@ -82,9 +82,9 @@ public class GameManager : MonoBehaviour
                 Slider sliderCompo = slider.GetComponent<Slider>();
                 RectTransform sliderRect = slider.GetComponent<RectTransform>();
 
-                float percent = (note.valueNote + valToAdd) / sliderCompo.maxValue;
+                float percent = (note.ValueNote + valToAdd) / sliderCompo.maxValue;
                 if(Application.isPlaying)
-                    percent = note.valueNote / sliderCompo.maxValue;
+                    percent = note.ValueNote / sliderCompo.maxValue;
 
                 float dist = sliderRect.rect.width * percent;
                 Vector3 dir = Quaternion.AngleAxis(sliderRect.eulerAngles.z, Vector3.forward) * -transform.right;
@@ -93,8 +93,8 @@ public class GameManager : MonoBehaviour
                 Gizmos.color = color;
                 Gizmos.DrawCube(notePoint, new Vector3(10, 10, 1));
 
-                if (note.valueNote > Diff)
-                    Diff = note.valueNote;
+                if (note.ValueNote > Diff)
+                    Diff = note.ValueNote;
             }
         }
     }
