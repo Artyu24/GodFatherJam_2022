@@ -14,12 +14,15 @@ public class MusicHandler : MonoBehaviour
     public AudioClip clip;
     float clipDuration;
     float fourBars;
+    public float physicalLength = 0;
 
     private void OnDrawGizmos()
     {
         clipDuration = clip.length/60f;
 
-        fourBars = (bpm / clipDuration) * 4f;
+        fourBars = (bpm / clipDuration)/2f;
+
+        physicalLength = 0f;
 
         Slider sliderCompo = slider.GetComponent<Slider>();
         RectTransform sliderRect = slider.GetComponent<RectTransform>();
@@ -32,6 +35,8 @@ public class MusicHandler : MonoBehaviour
 
             Gizmos.color = Color.magenta;
             Gizmos.DrawCube(breakPoint, new Vector3(10, 10, 1));
+
+            physicalLength += fourBars;
         }
 
 
