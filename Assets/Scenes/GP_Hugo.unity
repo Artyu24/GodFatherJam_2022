@@ -1334,12 +1334,18 @@ MonoBehaviour:
   speed: 1
   partOne:
   - sliderChoose: 1
+    valueNote: 310
   - sliderChoose: 2
+    valueNote: 498
   - sliderChoose: 3
+    valueNote: 187
   - sliderChoose: 4
+    valueNote: 999
   - sliderChoose: 4
+    valueNote: 57
   partTwo:
   - sliderChoose: 2
+    valueNote: 0
   partThree: []
 --- !u!4 &1434417117
 Transform:
@@ -1371,6 +1377,10 @@ MonoBehaviour:
   BottomRightSlider: {fileID: 5939865135464174780, guid: 79c270f8067523841b71af33f90fd50d, type: 3}
   TopLeftSlider: {fileID: 4336790293720303254, guid: c5bb69ae2b8939646a2d35ce6f90e09b, type: 3}
   BottomLeftSlider: {fileID: 7308571596703398667, guid: ebc17ab40dbab084eaca891c8df2bb04, type: 3}
+  existingTopRight: 0
+  existingBottomRight: 0
+  existingTopLeft: 0
+  existingBottomLeft: 0
 --- !u!1 &1509228876
 GameObject:
   m_ObjectHideFlags: 0
