@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 60;
+
         foreach (SliderNote note in partOne)
         {
             if (note.ValueNote > difPartOne)
