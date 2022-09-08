@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 60;
+
         foreach (SliderNote note in partOne)
         {
             if (note.ValueNote > difPartOne)
@@ -98,7 +100,8 @@ public class GameManager : MonoBehaviour
             Color color = GetNoteColor(note.sliderChoose);
             if (color != Color.white)
             {
-                GameObject slider = slidersObject[note.sliderChoose - 1];
+                GameObject slider = slidersObject[0];
+                //GameObject slider = slidersObject[note.sliderChoose - 1];
                 Slider sliderCompo = slider.GetComponent<Slider>();
                 RectTransform sliderRect = slider.GetComponent<RectTransform>();
 
