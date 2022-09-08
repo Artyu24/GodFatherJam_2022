@@ -29,7 +29,7 @@ public class PushButton : MonoBehaviour
         }
     }
 
-    private void FindNotes(int sliderID)
+    public void FindNotes(int sliderID)
     {
         List<SliderNote> noteFound = new List<SliderNote>();
 
