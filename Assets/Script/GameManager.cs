@@ -40,6 +40,11 @@ public class GameManager : MonoBehaviour
     public List<SliderNote> PartTwo { get { return partTwo; } }
     public List<SliderNote> PartThree { get { return partThree; } }
 
+    [Header("Gestion des points")]
+    [SerializeField] private Text scoreText;
+    [SerializeField] private Text rankText;
+    [SerializeField] private int pointByEarly, pointByLate, pointByPerfect, rankS, rankA, rankB, rankC;
+    [SerializeField] private Text missPointText, tooEarlyPointText, tooLatePointText, perfectPointText;
     private int missPoint, tooEarlyPoint, tooLatePoint, perfectPoint;
     public int MissPoint { get => missPoint; set => missPoint = value; }
     public int TooEarlyPoint { get => tooEarlyPoint; set => tooEarlyPoint = value; }
@@ -117,6 +122,28 @@ public class GameManager : MonoBehaviour
         float dist = sliderRect.rect.width * percent;
         Vector3 dir = Quaternion.AngleAxis(sliderRect.eulerAngles.z, Vector3.forward) * -transform.right;
         return slider.transform.position + dir * dist;
+    }
+
+    private void OnVictory()
+    {
+        missPointText.text = missPoint.ToString();
+        tooEarlyPointText.text = tooEarlyPoint.ToString();
+        tooLatePointText.text = tooLatePoint.ToString();
+        perfectPointText.text = perfectPoint.ToString();
+
+        int score = tooEarlyPoint * pointByEarly + tooLatePoint * pointByLate + perfectPoint * pointByPerfect;
+        scoreText.text = score.ToString();
+
+        if (score > rankS)
+            rankText.text = "S";
+        else if(score > rankA)
+            rankText.text = "A";
+        else if (score > rankB)
+            rankText.text = "B";
+        else if (score > rankC)
+            rankText.text = "C";
+        else
+            rankText.text = "D";
     }
 
     private void OnDrawGizmos()
