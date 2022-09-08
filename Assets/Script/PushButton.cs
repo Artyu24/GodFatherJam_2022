@@ -8,6 +8,7 @@ public class PushButton : MonoBehaviour
     [SerializeField] private KeyCode leftUp, rightUp, leftDown, rightDown;
     [SerializeField] private int nothing, tooEarly, perfect, tooLate, miss;
     [SerializeField] private Text fbText;
+    [SerializeField] private Animator drumAnim;
 
     private void Update()
     {
@@ -40,6 +41,8 @@ public class PushButton : MonoBehaviour
                 noteFound.Add(note);
             }
         }
+
+        drumAnim.SetTrigger("drum");
 
         if (noteFound.Count == 0)
         {
