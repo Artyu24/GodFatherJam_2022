@@ -5,23 +5,25 @@ using UnityEngine.UI;
 
 public class PushButton : MonoBehaviour
 {
-    [SerializeField] private int tooEarly, perfect, tooLate, miss;
+    [SerializeField] private KeyCode leftUp, rightUp, leftDown, rightDown;
+    [SerializeField] private int nothing, tooEarly, perfect, tooLate, miss;
+    [SerializeField] private Text fbText;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(leftUp) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             FindNotes(1);
         }
-        else if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(rightUp) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             FindNotes(2);
         }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(leftDown) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             FindNotes(3);
         }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(rightDown) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             FindNotes(4);
         }
@@ -55,29 +57,57 @@ public class PushButton : MonoBehaviour
             }
         }
 
-        if (noteChoose.ValueNote > tooEarly)
+        if (noteChoose.valueNote > nothing)
+        {
+            return;
+        }
+
+        GameManager gm = GetComponent<GameManager>();
+        StopCoroutine(RemoveText());
+
+        if (noteChoose.ValueNote <= nothing && noteChoose.ValueNote > tooEarly)
         {
             //miss
+            //Perd un coeur
+            fbText.text = "Miss";
+            gm.MissPoint++;
         }
         else if (noteChoose.ValueNote <= tooEarly && noteChoose.ValueNote > perfect)
         {
             //too early
+            fbText.text = "Too early";
+            gm.TooEarlyPoint++;
         }
         else if (noteChoose.ValueNote <= perfect && noteChoose.ValueNote > tooLate)
         {
             //Perfect
+            fbText.text = "Perfect";
+            gm.PerfectPoint++;
         }
         else if (noteChoose.ValueNote <= tooLate && noteChoose.ValueNote > miss)
         {
             //too late
+            fbText.text = "Too late";
+            gm.TooLatePoint++;
         }
         else
         {
             //miss
+            //Perd un coeur
+            fbText.text = "Miss";
+            gm.MissPoint++;
         }
 
+        StartCoroutine(RemoveText());
         Destroy(noteChoose.NoteObject);
         noteChoose.HasDespawn = true;
         Sliderspawner.DictNote.Remove(noteChoose.IdNote);
+    }
+
+    private IEnumerator RemoveText()
+    {
+        fbText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        fbText.gameObject.SetActive(false);
     }
 }
