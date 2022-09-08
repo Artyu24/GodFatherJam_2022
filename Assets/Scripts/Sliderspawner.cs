@@ -65,6 +65,7 @@ public class Sliderspawner : MonoBehaviour
                     Destroy(note.NoteObject);
                     dictNote.Remove(note.IdNote);
                     note.HasDespawn = true;
+                    GetComponent<PushButton>().MissEvent();
                 }
                 else
                 {
