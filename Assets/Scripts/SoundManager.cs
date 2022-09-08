@@ -37,10 +37,10 @@ public class SoundManager : MonoBehaviour
             Stop("Menu");
             Play("Rock");
         }
-
-
-
-
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Musique_01"))
+        {
+            Play("Game_01");
+        }
     }
 
     public void Play(string name)
