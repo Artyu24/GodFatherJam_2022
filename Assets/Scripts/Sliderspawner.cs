@@ -1,106 +1,111 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Sliderspawner : MonoBehaviour
 {
 
     [SerializeField]
-    public GameObject TopRightSlider;
+    public GameObject topRightNote;
     [SerializeField]
-    public GameObject BottomRightSlider;
+    public GameObject bottomRightNote;
     [SerializeField]
-    public GameObject TopLeftSlider;
+    public GameObject topLeftNote;
     [SerializeField]
-    public GameObject BottomLeftSlider;
+    public GameObject bottomLeftNote;
+
+
+    [SerializeField]
+    public GameObject topRightSliderSpawn;
+    [SerializeField]
+    public GameObject bottomLeftSliderSpawn;
+    [SerializeField]
+    public GameObject topLeftSliderSpawn;
+    [SerializeField]
+    public GameObject bottomRightSliderSpawn;
 
     public bool existingTopRight = false;
     public bool existingBottomRight = false;
     public bool existingTopLeft = false ;
     public bool existingBottomLeft = false;
 
-    private GameObject topleftslider;
-    private GameObject bottomleftslider;
-    private GameObject toprightslider;
-    private GameObject bottomrightslider;
+    public GameObject canvas;
 
 
 
+    private static Dictionary<string, SliderNote> dictNote = new Dictionary<string, SliderNote> ();
+    public static Dictionary<string, SliderNote> DictNote => dictNote;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         foreach (SliderNote note in GetComponent<GameManager>().PartOne)
         {
-            if (note.valueNote <= 300)
+            SpawnSlider(note);
+        }
+        foreach (SliderNote note in GetComponent<GameManager>().PartTwo)
+        {
+            SpawnSlider(note);
+        }
+        foreach (SliderNote note in GetComponent<GameManager>().PartThree)
+        {
+            SpawnSlider(note);
+        }
+
+        for (int i = 0; i < dictNote.Count;) 
+        {
+            var patate = dictNote.ElementAt(i);
+            SliderNote note = patate.Value;
+            if(note.valueNote <= -30f)
+            {
+                Destroy(note.NoteObject);
+                dictNote.Remove(note.IdNote);
+                note.HasDespawn = true;
+            }
+            else
+            {
+                note.NoteObject.transform.position = note.NotePosition;
+                i++;
+            }
+        }
+
+    }
+
+    private void SpawnSlider(SliderNote note)
+    {
+        if (note.valueNote <= 300)
+        {
+            GameObject slider = null;
+            if (!dictNote.ContainsKey(note.IdNote) && !note.HasDespawn)
             {
                 switch (note.sliderChoose)
                 {
                     case 1:
-                        if (existingTopLeft == false)
-                        {
-                            topleftslider = Instantiate(TopLeftSlider);
-                            existingTopLeft = true;
-                            if (note.valueNote < 10)
-                            {
-                                GameObject.Destroy(topleftslider);
-                                Debug.LogWarning("Destroyed");
-                                existingTopLeft = false;
-                            }
-
-
-                        }
+                        slider = Instantiate(topLeftNote,canvas.transform );
                         break;
                     case 2:
-                        if (existingBottomLeft == false)
-                        {
-                            bottomleftslider = Instantiate(BottomLeftSlider);
-                            existingBottomLeft = true;
-                            if(note.valueNote < 10)
-                            {
-                                GameObject.Destroy(bottomleftslider);
-                                Debug.LogWarning("Destroyed");
-                                existingBottomLeft = false;
-                            }
-                        }
+                        slider = Instantiate(bottomLeftNote, canvas.transform);
                         break;
                     case 3:
-                        if(existingTopRight == false)
-                        {
-                            toprightslider = Instantiate(TopRightSlider);
-                            existingTopRight = true;
-                            if (note.valueNote < 10)
-                            {
-                                GameObject.Destroy(toprightslider);
-                                Debug.LogWarning("Destroyed");
-                                existingTopRight = false;
-                            }
-                        }
+                        slider = Instantiate(topRightNote, canvas.transform);
                         break;
                     case 4:
-                        if(existingBottomRight == false)
-                        {
-                            bottomrightslider = Instantiate(BottomRightSlider);
-                            existingBottomRight=true;
-                            if(note.valueNote < 10)
-                            {
-                                GameObject.Destroy(bottomrightslider);
-                                Debug.LogWarning("Destroyed");
-                                existingBottomRight = false;
-                            }
-                        }
+
+                        slider = Instantiate(bottomRightNote, canvas.transform);
                         break;
                     default:
                         break;
                 }
+
+            }
+
+            if (slider != null)
+            {
+                note.NoteObject = slider;
+                dictNote.Add(note.IdNote, note);
             }
         }
     }
