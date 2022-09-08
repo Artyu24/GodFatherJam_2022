@@ -9,7 +9,8 @@ public class PushButton : MonoBehaviour
     [SerializeField] private int nothing, tooEarly, perfect, tooLate, miss;
     [SerializeField] private Text fbText;
     [SerializeField] private Animator drumAnim;
-
+    [SerializeField] private HealthSystem Health;
+    
     private void Update()
     {
         if (Input.GetKeyDown(leftUp) || Input.GetKeyDown(KeyCode.UpArrow))
@@ -72,6 +73,7 @@ public class PushButton : MonoBehaviour
         {
             //miss
             //Perd un coeur
+            Health.currentHealth -= 1;
             fbText.text = "Miss";
             gm.MissPoint++;
         }
@@ -97,6 +99,7 @@ public class PushButton : MonoBehaviour
         {
             //miss
             //Perd un coeur
+            Health.currentHealth -= 1;
             fbText.text = "Miss";
             gm.MissPoint++;
         }
