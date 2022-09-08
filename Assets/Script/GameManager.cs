@@ -40,6 +40,12 @@ public class GameManager : MonoBehaviour
     public List<SliderNote> PartTwo { get { return partTwo; } }
     public List<SliderNote> PartThree { get { return partThree; } }
 
+    private int missPoint, tooEarlyPoint, tooLatePoint, perfectPoint;
+    public int MissPoint { get => missPoint; set => missPoint = value; }
+    public int TooEarlyPoint { get => tooEarlyPoint; set => tooEarlyPoint = value; }
+    public int TooLatePoint { get => tooLatePoint; set => tooLatePoint = value; }
+    public int PerfectPoint { get => perfectPoint; set => perfectPoint = value; }
+
     private void Start()
     {
         Application.targetFrameRate = 60;

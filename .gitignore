@@ -60,3 +60,5 @@ sysinfo.txt
 crashlytics-build.properties
 
 .vsconfig
+UserSettings/EditorUserSettings.asset
+*.asset
