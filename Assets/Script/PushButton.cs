@@ -7,7 +7,8 @@ public class PushButton : MonoBehaviour
 {
     [SerializeField] private KeyCode leftUp, rightUp, leftDown, rightDown;
     [SerializeField] private int nothing, tooEarly, perfect, tooLate, miss;
-    [SerializeField] private Text fbText;
+    [SerializeField] private Image placeHolderImage;
+    [SerializeField] private Sprite nothingImage, tooEarlyImage, perfectImage, tooLateImage, missImage;
     [SerializeField] private Animator drumAnim;
     [SerializeField] private HealthSystem Health;
     
@@ -74,25 +75,25 @@ public class PushButton : MonoBehaviour
             //miss
             //Perd un coeur
             Health.currentHealth -= 1;
-            fbText.text = "Miss";
+            placeHolderImage.sprite = missImage;
             gm.MissPoint++;
         }
         else if (noteChoose.ValueNote <= tooEarly && noteChoose.ValueNote > perfect)
         {
             //too early
-            fbText.text = "Too early";
+            placeHolderImage.sprite = tooEarlyImage;
             gm.TooEarlyPoint++;
         }
         else if (noteChoose.ValueNote <= perfect && noteChoose.ValueNote > tooLate)
         {
             //Perfect
-            fbText.text = "Perfect";
+            placeHolderImage.sprite = perfectImage;
             gm.PerfectPoint++;
         }
         else if (noteChoose.ValueNote <= tooLate && noteChoose.ValueNote > miss)
         {
             //too late
-            fbText.text = "Too late";
+            placeHolderImage.sprite = tooLateImage;
             gm.TooLatePoint++;
         }
         else
@@ -100,7 +101,7 @@ public class PushButton : MonoBehaviour
             //miss
             //Perd un coeur
             Health.currentHealth -= 1;
-            fbText.text = "Miss";
+            placeHolderImage.sprite = missImage;
             gm.MissPoint++;
         }
 
@@ -112,8 +113,8 @@ public class PushButton : MonoBehaviour
 
     private IEnumerator RemoveText()
     {
-        fbText.gameObject.SetActive(true);
+        //fbText.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
-        fbText.gameObject.SetActive(false);
+        //fbText.gameObject.SetActive(false);
     }
 }

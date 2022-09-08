@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //ICI FAIRE LE DECALAGE
     private void Update()
     {
         if(Pausemenu.Game_Paused == false)
