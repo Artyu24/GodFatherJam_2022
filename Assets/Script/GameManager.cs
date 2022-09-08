@@ -21,6 +21,9 @@ public class SliderNote
     public GameObject NoteObject { get => noteObject; set => noteObject = value; }
     private Vector3 notePosition;
     public Vector3 NotePosition { get => notePosition; set => notePosition = value; }
+
+    private bool hasDespawn = false;
+    public bool HasDespawn { get => hasDespawn; set => hasDespawn = value; }
 }
 
 public class GameManager : MonoBehaviour

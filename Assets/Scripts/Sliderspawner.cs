@@ -37,17 +37,9 @@ public class Sliderspawner : MonoBehaviour
 
 
 
-    Dictionary<string, SliderNote> dictNote = new Dictionary<string, SliderNote> ();
+    private static Dictionary<string, SliderNote> dictNote = new Dictionary<string, SliderNote> ();
+    public static Dictionary<string, SliderNote> DictNote => dictNote;
 
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         foreach (SliderNote note in GetComponent<GameManager>().PartOne)
@@ -71,6 +63,7 @@ public class Sliderspawner : MonoBehaviour
             {
                 Destroy(note.NoteObject);
                 dictNote.Remove(note.IdNote);
+                note.HasDespawn = true;
             }
             else
             {
@@ -86,7 +79,7 @@ public class Sliderspawner : MonoBehaviour
         if (note.valueNote <= 300)
         {
             GameObject slider = null;
-            if (!dictNote.ContainsKey(note.IdNote))
+            if (!dictNote.ContainsKey(note.IdNote) && !note.HasDespawn)
             {
                 switch (note.sliderChoose)
                 {
@@ -114,8 +107,6 @@ public class Sliderspawner : MonoBehaviour
                 note.NoteObject = slider;
                 dictNote.Add(note.IdNote, note);
             }
-
-
         }
     }
 }
