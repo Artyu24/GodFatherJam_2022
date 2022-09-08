@@ -12,6 +12,11 @@ public class SliderNote
     public int sliderChoose;
     public float valueNote;
     public float ValueNote { get { return valueNote; } set { valueNote = value; } }
+    
+    private float baseValue;
+    public float BaseValue { get => baseValue; set => baseValue = value; }
+    private string idNote;
+    public string IdNote {get => idNote; set => idNote = value; }
 }
 
 public class GameManager : MonoBehaviour
@@ -36,6 +41,9 @@ public class GameManager : MonoBehaviour
         {
             if (note.ValueNote > difPartOne)
                 difPartOne = note.ValueNote;
+
+            note.BaseValue = note.ValueNote;
+            note.IdNote = note.sliderChoose + "_" + note.ValueNote;
         }
 
         foreach (SliderNote note in partTwo)
@@ -44,10 +52,18 @@ public class GameManager : MonoBehaviour
                 difPartTwo = note.ValueNote;
 
             note.ValueNote += difPartOne;
+
+            note.BaseValue = note.ValueNote;
+            note.IdNote = note.sliderChoose + "_" + note.ValueNote;
         }
 
         foreach (SliderNote note in partThree)
+        {
             note.ValueNote += difPartOne + difPartTwo;
+
+            note.BaseValue = note.ValueNote;
+            note.IdNote = note.sliderChoose + "_" + note.ValueNote;
+        }
     }
 
     private void Update()
