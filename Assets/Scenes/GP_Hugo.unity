@@ -1331,7 +1331,7 @@ MonoBehaviour:
   - {fileID: 422368577}
   - {fileID: 606603074}
   - {fileID: 795392079}
-  speed: 50
+  speed: 100
   partOne:
   - sliderChoose: 1
     valueNote: 310
