@@ -774,6 +774,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 6935170293464150041, guid: 36a33dfbd32acb842afb32d80fa96d18, type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 1341625437}
+    - target: {fileID: 6935170293464150041, guid: 36a33dfbd32acb842afb32d80fa96d18, type: 3}
+      propertyPath: physicalLength
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36a33dfbd32acb842afb32d80fa96d18, type: 3}
 --- !u!1 &660981273
@@ -1313,7 +1321,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1000
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
