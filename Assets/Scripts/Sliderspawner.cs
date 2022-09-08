@@ -42,33 +42,36 @@ public class Sliderspawner : MonoBehaviour
 
     void Update()
     {
-        foreach (SliderNote note in GetComponent<GameManager>().PartOne)
+        if(Pausemenu.Game_Paused == false)
         {
-            SpawnSlider(note);
-        }
-        foreach (SliderNote note in GetComponent<GameManager>().PartTwo)
-        {
-            SpawnSlider(note);
-        }
-        foreach (SliderNote note in GetComponent<GameManager>().PartThree)
-        {
-            SpawnSlider(note);
-        }
-
-        for (int i = 0; i < dictNote.Count;) 
-        {
-            var patate = dictNote.ElementAt(i);
-            SliderNote note = patate.Value;
-            if(note.valueNote <= -30f)
+            foreach (SliderNote note in GetComponent<GameManager>().PartOne)
             {
-                Destroy(note.NoteObject);
-                dictNote.Remove(note.IdNote);
-                note.HasDespawn = true;
+                SpawnSlider(note);
             }
-            else
+            foreach (SliderNote note in GetComponent<GameManager>().PartTwo)
             {
-                note.NoteObject.transform.position = note.NotePosition;
-                i++;
+                SpawnSlider(note);
+            }
+            foreach (SliderNote note in GetComponent<GameManager>().PartThree)
+            {
+                SpawnSlider(note);
+            }
+
+            for (int i = 0; i < dictNote.Count;) 
+            {
+                var patate = dictNote.ElementAt(i);
+                SliderNote note = patate.Value;
+                if(note.valueNote <= -30f)
+                {
+                    Destroy(note.NoteObject);
+                    dictNote.Remove(note.IdNote);
+                    note.HasDespawn = true;
+                }
+                else
+                {
+                    note.NoteObject.transform.position = note.NotePosition;
+                    i++;
+                }
             }
         }
 

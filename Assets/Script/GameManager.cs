@@ -75,22 +75,25 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        foreach (SliderNote note in partOne)
+        if(Pausemenu.Game_Paused == false)
         {
-            note.ValueNote -= speed * Time.deltaTime;
-            note.NotePosition = GetNotePosition(note);
-        }
-        foreach (SliderNote note in partTwo)
-        {
-            note.ValueNote -= speed * Time.deltaTime;
-            note.NotePosition = GetNotePosition(note);
+            foreach (SliderNote note in partOne)
+            {
+                note.ValueNote -= speed * Time.deltaTime;
+                note.NotePosition = GetNotePosition(note);
+            }
+            foreach (SliderNote note in partTwo)
+            {
+                note.ValueNote -= speed * Time.deltaTime;
+                note.NotePosition = GetNotePosition(note);
 
-        }
-        foreach (SliderNote note in partThree)
-        {
-            note.ValueNote -= speed * Time.deltaTime;
-            note.NotePosition = GetNotePosition(note);
+            }
+            foreach (SliderNote note in partThree)
+            {
+                note.ValueNote -= speed * Time.deltaTime;
+                note.NotePosition = GetNotePosition(note);
 
+            }
         }
     }
 
