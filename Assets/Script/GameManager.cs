@@ -12,8 +12,11 @@ public class SliderNote
     public int sliderChoose;
     public float valueNote;
     public float ValueNote { get { return valueNote; } set { valueNote = value; } }
-    private Vector2 notePos;
-    public Vector2 NotePos { get { return notePos; } set { notePos = value; } }
+    
+    private float baseValue;
+    public float BaseValue { get => baseValue; set => baseValue = value; }
+    private string idNote;
+    public string IdNote {get => idNote; set => idNote = value; }
 }
 
 public class GameManager : MonoBehaviour
@@ -37,7 +40,8 @@ public class GameManager : MonoBehaviour
             if (note.ValueNote > difPartOne)
                 difPartOne = note.ValueNote;
 
-            note.NotePos = GetNoteCoord(note);
+            note.BaseValue = note.ValueNote;
+            note.IdNote = note.sliderChoose + "_" + note.ValueNote;
         }
 
         foreach (SliderNote note in partTwo)
@@ -46,15 +50,17 @@ public class GameManager : MonoBehaviour
                 difPartTwo = note.ValueNote;
 
             note.ValueNote += difPartOne;
-            
-            note.NotePos = GetNoteCoord(note);
+
+            note.BaseValue = note.ValueNote;
+            note.IdNote = note.sliderChoose + "_" + note.ValueNote;
         }
 
         foreach (SliderNote note in partThree)
         {
             note.ValueNote += difPartOne + difPartTwo;
- 
-            note.NotePos = GetNoteCoord(note);
+
+            note.BaseValue = note.ValueNote;
+            note.IdNote = note.sliderChoose + "_" + note.ValueNote;
         }
     }
 
@@ -63,33 +69,15 @@ public class GameManager : MonoBehaviour
         foreach (SliderNote note in partOne)
         {
             note.ValueNote -= speed * Time.deltaTime;
-            note.NotePos = GetNoteCoord(note);
         }
         foreach (SliderNote note in partTwo)
         {
             note.ValueNote -= speed * Time.deltaTime;
-            note.NotePos = GetNoteCoord(note);
         }
         foreach (SliderNote note in partThree)
         {
             note.ValueNote -= speed * Time.deltaTime;
-            note.NotePos = GetNoteCoord(note);
         }
-    }
-
-    private Vector3 GetNoteCoord(SliderNote note)
-    {
-        GameObject slider = slidersObject[note.sliderChoose - 1];
-        Slider sliderCompo = slider.GetComponent<Slider>();
-        RectTransform sliderRect = slider.GetComponent<RectTransform>();
-
-        float percent = note.ValueNote / sliderCompo.maxValue;
-        if (Application.isPlaying)
-            percent = note.ValueNote / sliderCompo.maxValue;
-
-        float dist = sliderRect.rect.width * percent;
-        Vector3 dir = Quaternion.AngleAxis(sliderRect.eulerAngles.z, Vector3.forward) * -transform.right;
-        return slider.transform.position + dir * dist;
     }
 
     private void OnDrawGizmos()
