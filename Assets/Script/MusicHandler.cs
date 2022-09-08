@@ -16,9 +16,9 @@ public class MusicHandler : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        clipDuration = clip.length/60f;
+        clipDuration = clip.length / 60f;
 
-        fourBars = (bpm / clipDuration)/2f;
+        fourBars = (bpm / clipDuration) / 2f;
 
         physicalLength = 0f;
 
@@ -28,8 +28,8 @@ public class MusicHandler : MonoBehaviour
         for (int i = 0; i < bpm; i++)
         {
 
-            Vector3 dir = Quaternion.AngleAxis(sliderRect.eulerAngles.z, Vector3.forward) * - transform.right;
-            Vector3 breakPoint = slider.transform.position + dir *  (i * fourBars * 4f);
+            Vector3 dir = Quaternion.AngleAxis(sliderRect.eulerAngles.z, Vector3.forward) * -transform.right;
+            Vector3 breakPoint = slider.transform.position + dir * (i * fourBars * 4f);
 
             Gizmos.color = Color.magenta;
             Gizmos.DrawCube(breakPoint, new Vector3(10, 10, 1));
@@ -50,9 +50,5 @@ public class MusicHandler : MonoBehaviour
         //    Gizmos.color = Color.yellow;
         //    Gizmos.DrawCube(beatPoint, new Vector3(10, 10, 1));
         //}
-    }
-    void Update()
-    {
-        
     }
 }
