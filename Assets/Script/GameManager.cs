@@ -117,6 +117,7 @@ public class GameManager : MonoBehaviour
         else
         {
             delay -= Time.deltaTime * 1000f;
+            Debug.Log(delay);
         }
     }
 
