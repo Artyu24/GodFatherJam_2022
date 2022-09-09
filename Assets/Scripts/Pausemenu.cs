@@ -15,9 +15,6 @@ public class Pausemenu : MonoBehaviour
     public GameObject countdown_text;
     public SoundManager music;
 
-    public Text DelayTextUI;
-    public static float currentDelay;
-
     private void Start()
     {
         
@@ -61,17 +58,9 @@ public class Pausemenu : MonoBehaviour
         Game_Paused = true;
 
         music.sounds[2].source.Pause();
-        //foreach (Sound s in music.sounds)
-        //{
-        //    s.source.Pause();
-        //}
     }
 
-    public void DelayLevel(float delayLevel)
-    {
-        currentDelay = delayLevel;
-        DelayTextUI.text = delayLevel.ToString("0.00") + "ms";
-    }
+
 
     IEnumerator Countdown()
     {

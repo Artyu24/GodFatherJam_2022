@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = 60;
-        delay = Pausemenu.currentDelay;
+        delay = GameSettings.currentDelay;
 
         foreach (SliderNote note in partOne)
         {
@@ -84,8 +84,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        //if (delay>=0)
-        //    {
+        if (delay <= 0)
+        {
             if (Pausemenu.Game_Paused == false)
             {
                 foreach (SliderNote note in partOne)
@@ -97,17 +97,20 @@ public class GameManager : MonoBehaviour
                 {
                     note.ValueNote -= speed * Time.deltaTime;
                     note.NotePosition = GetNotePosition(note);
-            
+
                 }
                 foreach (SliderNote note in partThree)
                 {
                     note.ValueNote -= speed * Time.deltaTime;
                     note.NotePosition = GetNotePosition(note);
-            
+
                 }
             }
-        //}
-        //delay -= (1f * Time.deltaTime);
+        }
+        else
+        {
+            delay -= Time.deltaTime * 1000f;
+        }
     }
 
     private Vector3 GetNotePosition(SliderNote note)
