@@ -68,6 +68,12 @@ public class Pausemenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Restart()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
+
 
 
     IEnumerator Countdown()
