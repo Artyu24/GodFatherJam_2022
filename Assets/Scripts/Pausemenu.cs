@@ -77,6 +77,7 @@ public class Pausemenu : MonoBehaviour
 
     public void Menu()
     {
+        Game_Paused = false;
         SceneManager.LoadScene(0);
     }
 
