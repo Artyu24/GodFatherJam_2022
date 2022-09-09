@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
 
     public Sound[] sounds;
     AudioSource audioSource;
+    public GameManager gameManager;
 
     void Awake()
     {
@@ -67,6 +68,19 @@ public class SoundManager : MonoBehaviour
 
     private void Update()
     {
-
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Musique_01"))
+        {
+            foreach(Sound s in sounds)
+            {
+                if(s.name == "Game_01")
+                {
+                   if(!s.source.isPlaying)
+                    {
+                        gameManager.OnVictory();
+                        Debug.LogWarning("Victory");
+                    }
+                }
+            }
+        }
     }
 }

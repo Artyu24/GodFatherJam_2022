@@ -7,7 +7,8 @@ public class PushButton : MonoBehaviour
 {
     [SerializeField] private KeyCode leftUp, rightUp, leftDown, rightDown;
     [SerializeField] private int nothing, tooEarly, perfect, tooLate, miss;
-    [SerializeField] private Text fbText;
+    [SerializeField] private Image placeHolderImage;
+    [SerializeField] private Sprite tooEarlyImage, perfectImage, tooLateImage, missImage;
     [SerializeField] private Animator drumAnim;
     [SerializeField] private HealthSystem Health;
     
@@ -73,47 +74,58 @@ public class PushButton : MonoBehaviour
         {
             //miss
             //Perd un coeur
-            Health.currentHealth -= 1;
-            fbText.text = "Miss";
-            gm.MissPoint++;
+            MissEvent();
         }
         else if (noteChoose.ValueNote <= tooEarly && noteChoose.ValueNote > perfect)
         {
             //too early
-            fbText.text = "Too early";
+            placeHolderImage.sprite = tooEarlyImage;
             gm.TooEarlyPoint++;
+            StartCoroutine(RemoveText());
         }
         else if (noteChoose.ValueNote <= perfect && noteChoose.ValueNote > tooLate)
         {
             //Perfect
-            fbText.text = "Perfect";
+            placeHolderImage.sprite = perfectImage;
             gm.PerfectPoint++;
+            StartCoroutine(RemoveText());
         }
         else if (noteChoose.ValueNote <= tooLate && noteChoose.ValueNote > miss)
         {
             //too late
-            fbText.text = "Too late";
+            placeHolderImage.sprite = tooLateImage;
             gm.TooLatePoint++;
+            StartCoroutine(RemoveText());
         }
         else
         {
             //miss
             //Perd un coeur
-            Health.currentHealth -= 1;
-            fbText.text = "Miss";
-            gm.MissPoint++;
+            MissEvent();
         }
 
-        StartCoroutine(RemoveText());
-        Destroy(noteChoose.NoteObject);
         noteChoose.HasDespawn = true;
+        Destroy(noteChoose.NoteObject);
         Sliderspawner.DictNote.Remove(noteChoose.IdNote);
+    }
+
+    public void MissEvent()
+    {
+        GameManager gm = GetComponent<GameManager>();
+        if (gm != null)
+        {
+            StopCoroutine(RemoveText());
+            Health.currentHealth -= 1;
+            placeHolderImage.sprite = missImage;
+            gm.MissPoint++;
+            StartCoroutine(RemoveText());
+        }
     }
 
     private IEnumerator RemoveText()
     {
-        fbText.gameObject.SetActive(true);
+        placeHolderImage.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
-        fbText.gameObject.SetActive(false);
+        placeHolderImage.gameObject.SetActive(false);
     }
 }
