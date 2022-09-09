@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     public int TooEarlyPoint { get => tooEarlyPoint; set => tooEarlyPoint = value; }
     public int TooLatePoint { get => tooLatePoint; set => tooLatePoint = value; }
     public int PerfectPoint { get => perfectPoint; set => perfectPoint = value; }
+    public GameObject VictoryMenu;
 
     private void Start()
     {
@@ -124,8 +125,9 @@ public class GameManager : MonoBehaviour
         return slider.transform.position + dir * dist;
     }
 
-    private void OnVictory()
+    public void OnVictory()
     {
+        VictoryMenu.SetActive(true);
         missPointText.text = missPoint.ToString();
         tooEarlyPointText.text = tooEarlyPoint.ToString();
         tooLatePointText.text = tooLatePoint.ToString();
