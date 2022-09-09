@@ -65,7 +65,7 @@ public class HealthSystem : MonoBehaviour
                 defaultParticle.simulationSpeed = 3.0f;
                 break;
             case 0:
-                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 break;
         }
     }
