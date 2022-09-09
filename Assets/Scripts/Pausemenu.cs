@@ -75,6 +75,10 @@ public class Pausemenu : MonoBehaviour
     }
 
 
+    public void Menu()
+    {
+        SceneManager.LoadScene(0);
+    }
 
     IEnumerator Countdown()
     {
