@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Musique_01.unity
     guid: bbf12a6fa595bbc428e5387fa8a3c459
+  - enabled: 1
+    path: Assets/Scenes/DeathMenu.unity
+    guid: 09743df73281aea45b060529ec1c82db
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
