@@ -63,6 +63,11 @@ public class Pausemenu : MonoBehaviour
         music.sounds[0].source.Pause();
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
 
 
     IEnumerator Countdown()
