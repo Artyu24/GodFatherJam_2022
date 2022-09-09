@@ -7,6 +7,7 @@ public class Heart
 {
     public int id;
     [SerializeField] public GameObject heartObject;
+    [SerializeField] public GameObject iceHeartObject;
 }
 public class HealthSystem : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class HealthSystem : MonoBehaviour
         foreach (Heart heart in hearts)
         {
             Heart Heart = hearts[heart.id - 1];
+            heart.iceHeartObject.SetActive(false);
         }
     }
 
@@ -33,6 +35,7 @@ public class HealthSystem : MonoBehaviour
             if (currentHealth + 1 == heart.id)
             {
                 Destroy(heart.heartObject);
+                heart.iceHeartObject.SetActive(true);
             }
 
         }
