@@ -9103,6 +9103,7 @@ MonoBehaviour:
   missImage: {fileID: 21300000, guid: 43aeb9d7918d721428188a61051e6c07, type: 3}
   drumAnim: {fileID: 739649007}
   Health: {fileID: 1914274546}
+  playerAnim: {fileID: 2145480457}
 --- !u!1 &1460632968
 GameObject:
   m_ObjectHideFlags: 0
