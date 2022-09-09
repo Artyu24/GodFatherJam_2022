@@ -223,7 +223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198934635}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 125.5, y: 373.5, z: 0}
+  m_LocalPosition: {x: 125, y: 373.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1914274547}
@@ -1529,7 +1529,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747794854}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 125, y: 373.5, z: 0}
+  m_LocalPosition: {x: 124.5, y: 373.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1914274547}
@@ -4684,6 +4684,7 @@ MonoBehaviour:
   countdown: {fileID: 1814925817}
   countdown_text: {fileID: 1814925815}
   music: {fileID: 2018624456}
+  pauseButton: {fileID: 0}
 --- !u!95 &2145480457
 Animator:
   serializedVersion: 3
