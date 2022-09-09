@@ -68,7 +68,10 @@ public class Pausemenu : MonoBehaviour
         Application.Quit();
     }
 
-
+    public void Menu()
+    {
+        SceneManager.LoadScene(0);
+    }
 
     IEnumerator Countdown()
     {

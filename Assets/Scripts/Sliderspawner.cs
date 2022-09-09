@@ -38,6 +38,10 @@ public class Sliderspawner : MonoBehaviour
 
     private static Dictionary<string, SliderNote> dictNote = new Dictionary<string, SliderNote> ();
     public static Dictionary<string, SliderNote> DictNote => dictNote;
+    private void Awake()
+    {
+        DictNote.Clear();
+    }
 
     void Update()
     {
