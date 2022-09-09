@@ -1891,8 +1891,36 @@ PrefabInstance:
       value: ---SoundManager---
       objectReference: {fileID: 0}
     - target: {fileID: 4708722271135343054, guid: 0d79c1ee868163b4f90be3ae869fc194, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1434417116}
+    - target: {fileID: 4708722271135343054, guid: 0d79c1ee868163b4f90be3ae869fc194, type: 3}
       propertyPath: sounds.Array.size
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708722271135343054, guid: 0d79c1ee868163b4f90be3ae869fc194, type: 3}
+      propertyPath: sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c0410da579bf9714eb022d9e5f9d3f15, type: 3}
+    - target: {fileID: 4708722271135343054, guid: 0d79c1ee868163b4f90be3ae869fc194, type: 3}
+      propertyPath: sounds.Array.data[0].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708722271135343054, guid: 0d79c1ee868163b4f90be3ae869fc194, type: 3}
+      propertyPath: sounds.Array.data[0].name
+      value: Game_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708722271135343054, guid: 0d79c1ee868163b4f90be3ae869fc194, type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c0410da579bf9714eb022d9e5f9d3f15, type: 3}
+    - target: {fileID: 4708722271135343054, guid: 0d79c1ee868163b4f90be3ae869fc194, type: 3}
+      propertyPath: sounds.Array.data[1].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708722271135343054, guid: 0d79c1ee868163b4f90be3ae869fc194, type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: Game_01
       objectReference: {fileID: 0}
     - target: {fileID: 4708722271135343054, guid: 0d79c1ee868163b4f90be3ae869fc194, type: 3}
       propertyPath: sounds.Array.data[2].clip
@@ -1900,7 +1928,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: c0410da579bf9714eb022d9e5f9d3f15, type: 3}
     - target: {fileID: 4708722271135343054, guid: 0d79c1ee868163b4f90be3ae869fc194, type: 3}
       propertyPath: sounds.Array.data[2].loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4708722271135343054, guid: 0d79c1ee868163b4f90be3ae869fc194, type: 3}
       propertyPath: sounds.Array.data[2].name
@@ -8567,8 +8595,6 @@ MonoBehaviour:
   - sliderChoose: 2
     valueNote: 4229
   partThree:
-  - sliderChoose: 1
-    valueNote: 0
   - sliderChoose: 2
     valueNote: 34
   - sliderChoose: 1
@@ -8742,6 +8768,7 @@ MonoBehaviour:
   tooEarlyPointText: {fileID: 2142674776}
   tooLatePointText: {fileID: 696363763}
   perfectPointText: {fileID: 876163483}
+  VictoryMenu: {fileID: 1719018206}
 --- !u!4 &1434417117
 Transform:
   m_ObjectHideFlags: 0
