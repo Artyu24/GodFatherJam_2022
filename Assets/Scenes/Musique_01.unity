@@ -8186,8 +8186,6 @@ MonoBehaviour:
   - sliderChoose: 2
     valueNote: 4229
   partThree:
-  - sliderChoose: 1
-    valueNote: 0
   - sliderChoose: 2
     valueNote: 34
   - sliderChoose: 1
