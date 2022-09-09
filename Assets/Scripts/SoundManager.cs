@@ -8,9 +8,6 @@ public class SoundManager : MonoBehaviour
 
     public Sound[] sounds;
     AudioSource audioSource;
-    
-
-
 
     void Awake()
     {
@@ -72,6 +69,4 @@ public class SoundManager : MonoBehaviour
     {
 
     }
-
-
 }

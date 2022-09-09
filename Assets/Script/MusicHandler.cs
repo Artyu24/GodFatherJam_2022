@@ -10,9 +10,16 @@ public class MusicHandler : MonoBehaviour
 
     [SerializeField] GameObject slider; 
     public AudioClip clip;
+    public AudioSource source;
     float clipDuration;
     float fourBars;
     public float physicalLength = 0;
+
+
+    private void Update()
+    {
+
+    }
 
     private void OnDrawGizmos()
     {
@@ -36,19 +43,6 @@ public class MusicHandler : MonoBehaviour
 
             physicalLength += fourBars;
         }
-
-
-        //Slider sliderCompo = slider.GetComponent<Slider>();
-        //RectTransform sliderRect = slider.GetComponent<RectTransform>();
-        //float percent = value / sliderCompo.maxValue;
-
-        //    float dist = sliderRect.rect.width * percent;
-
-        //    Vector3 dir = Quaternion.AngleAxis(sliderRect.eulerAngles.z, Vector3.forward) * -transform.right;
-        //    Vector3 beatPoint = slider.transform.position + dir * dist;
-
-        //    Gizmos.color = Color.yellow;
-        //    Gizmos.DrawCube(beatPoint, new Vector3(10, 10, 1));
-        //}
     }
+
 }

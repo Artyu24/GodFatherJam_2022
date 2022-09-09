@@ -13,6 +13,10 @@ public class Pausemenu : MonoBehaviour
     public GameObject Pause_Menu_UI;
     public Text countdown;
     public GameObject countdown_text;
+    public SoundManager music;
+
+    public Text DelayTextUI;
+    public static float currentDelay;
 
     private void Start()
     {
@@ -31,12 +35,11 @@ public class Pausemenu : MonoBehaviour
             if (Game_Paused)
             {
                 StartCoroutine(Countdown());
-                
+
             }
             else
             {
                 Pause();
-
             }
         }
 
@@ -48,15 +51,28 @@ public class Pausemenu : MonoBehaviour
     {
         Pause_Menu_UI.SetActive(false);
         Game_Paused = false;
+        
+        music.sounds[2].source.Play();
     }
 
     void Pause()
     {
         Pause_Menu_UI.SetActive(true);
         Game_Paused = true;
+
+        music.sounds[2].source.Pause();
+        //foreach (Sound s in music.sounds)
+        //{
+        //    s.source.Pause();
+        //}
     }
 
-   
+    public void DelayLevel(float delayLevel)
+    {
+        currentDelay = delayLevel;
+        DelayTextUI.text = delayLevel.ToString("0.00") + "ms";
+    }
+
     IEnumerator Countdown()
     {
         Pause_Menu_UI.SetActive(false);

@@ -46,9 +46,12 @@ public class GameManager : MonoBehaviour
     public int TooLatePoint { get => tooLatePoint; set => tooLatePoint = value; }
     public int PerfectPoint { get => perfectPoint; set => perfectPoint = value; }
 
+    private float delay;
+
     private void Start()
     {
         Application.targetFrameRate = 60;
+        delay = Pausemenu.currentDelay;
 
         foreach (SliderNote note in partOne)
         {
@@ -81,26 +84,30 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(Pausemenu.Game_Paused == false)
-        {
-            foreach (SliderNote note in partOne)
+        //if (delay>=0)
+        //    {
+            if (Pausemenu.Game_Paused == false)
             {
-                note.ValueNote -= speed * Time.deltaTime;
-                note.NotePosition = GetNotePosition(note);
+                foreach (SliderNote note in partOne)
+                {
+                    note.ValueNote -= speed * Time.deltaTime;
+                    note.NotePosition = GetNotePosition(note);
+                }
+                foreach (SliderNote note in partTwo)
+                {
+                    note.ValueNote -= speed * Time.deltaTime;
+                    note.NotePosition = GetNotePosition(note);
+            
+                }
+                foreach (SliderNote note in partThree)
+                {
+                    note.ValueNote -= speed * Time.deltaTime;
+                    note.NotePosition = GetNotePosition(note);
+            
+                }
             }
-            foreach (SliderNote note in partTwo)
-            {
-                note.ValueNote -= speed * Time.deltaTime;
-                note.NotePosition = GetNotePosition(note);
-
-            }
-            foreach (SliderNote note in partThree)
-            {
-                note.ValueNote -= speed * Time.deltaTime;
-                note.NotePosition = GetNotePosition(note);
-
-            }
-        }
+        //}
+        //delay -= (1f * Time.deltaTime);
     }
 
     private Vector3 GetNotePosition(SliderNote note)
