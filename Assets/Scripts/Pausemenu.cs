@@ -14,6 +14,7 @@ public class Pausemenu : MonoBehaviour
     public Text countdown;
     public GameObject countdown_text;
     public SoundManager music;
+    public GameObject pauseButton; 
 
     private void Start()
     {
@@ -48,16 +49,18 @@ public class Pausemenu : MonoBehaviour
     {
         Pause_Menu_UI.SetActive(false);
         Game_Paused = false;
+        pauseButton.SetActive(true);
         
-        music.sounds[2].source.Play();
+        music.sounds[0].source.Play();
     }
 
-    void Pause()
+    public void Pause()
     {
         Pause_Menu_UI.SetActive(true);
         Game_Paused = true;
+        pauseButton.SetActive(false);
 
-        music.sounds[2].source.Pause();
+        music.sounds[0].source.Pause();
     }
 
 
