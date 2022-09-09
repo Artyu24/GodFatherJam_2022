@@ -74,7 +74,7 @@ public class SoundManager : MonoBehaviour
             {
                 if(s.name == "Game_01")
                 {
-                   if(!s.source.isPlaying)
+                   if(!s.source.isPlaying && Pausemenu.Game_Paused == false)
                     {
                         gameManager.OnVictory();
                         Debug.LogWarning("Victory");
