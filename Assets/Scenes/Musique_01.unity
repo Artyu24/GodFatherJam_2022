@@ -8066,6 +8066,7 @@ GameObject:
   - component: {fileID: 1279921462}
   - component: {fileID: 1279921464}
   - component: {fileID: 1279921463}
+  - component: {fileID: 1279921465}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -8130,6 +8131,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279921461}
   m_CullTransparentMesh: 1
+--- !u!95 &1279921465
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279921461}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b071563494f35b14c9e7a8f94bcd5a97, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1319310281
 GameObject:
   m_ObjectHideFlags: 0
@@ -8745,8 +8765,6 @@ MonoBehaviour:
     valueNote: 650
   - sliderChoose: 3
     valueNote: 770
-  - sliderChoose: 3
-    valueNote: 770
   - sliderChoose: 1
     valueNote: 1020
   - sliderChoose: 3
@@ -8851,177 +8869,7 @@ MonoBehaviour:
     valueNote: 3423
   - sliderChoose: 2
     valueNote: 3579
-  - sliderChoose: 4
-    valueNote: 3710
-  - sliderChoose: 1
-    valueNote: 3825
-  - sliderChoose: 4
-    valueNote: 3944
-  - sliderChoose: 3
-    valueNote: 4095
-  - sliderChoose: 2
-    valueNote: 4229
-  partThree:
-  - sliderChoose: 2
-    valueNote: 34
-  - sliderChoose: 1
-    valueNote: 68
-  - sliderChoose: 2
-    valueNote: 102
-  - sliderChoose: 1
-    valueNote: 136
-  - sliderChoose: 2
-    valueNote: 170
-  - sliderChoose: 3
-    valueNote: 204
-  - sliderChoose: 4
-    valueNote: 238
-  - sliderChoose: 1
-    valueNote: 272
-  - sliderChoose: 2
-    valueNote: 306
-  - sliderChoose: 3
-    valueNote: 340
-  - sliderChoose: 4
-    valueNote: 374
-  - sliderChoose: 2
-    valueNote: 408
-  - sliderChoose: 3
-    valueNote: 544
-  - sliderChoose: 1
-    valueNote: 578
-  - sliderChoose: 4
-    valueNote: 612
-  - sliderChoose: 2
-    valueNote: 646
-  - sliderChoose: 3
-    valueNote: 680
-  - sliderChoose: 3
-    valueNote: 714
-  - sliderChoose: 3
-    valueNote: 748
-  - sliderChoose: 1
-    valueNote: 782
-  - sliderChoose: 3
-    valueNote: 816
-  - sliderChoose: 3
-    valueNote: 850
-  - sliderChoose: 1
-    valueNote: 884
-  - sliderChoose: 1
-    valueNote: 918
-  - sliderChoose: 1
-    valueNote: 952
-  - sliderChoose: 3
-    valueNote: 986
-  - sliderChoose: 3
-    valueNote: 1020
-  - sliderChoose: 1
-    valueNote: 1054
-  - sliderChoose: 1
-    valueNote: 1088
-  - sliderChoose: 1
-    valueNote: 1122
-  - sliderChoose: 1
-    valueNote: 1156
-  - sliderChoose: 4
-    valueNote: 1190
-  - sliderChoose: 4
-    valueNote: 1224
-  - sliderChoose: 2
-    valueNote: 1258
-  - sliderChoose: 2
-    valueNote: 1292
-  - sliderChoose: 3
-    valueNote: 1326
-  - sliderChoose: 3
-    valueNote: 1360
-  - sliderChoose: 1
-    valueNote: 1394
-  - sliderChoose: 2
-    valueNote: 1428
-  - sliderChoose: 3
-    valueNote: 1462
-  - sliderChoose: 4
-    valueNote: 1496
-  - sliderChoose: 4
-    valueNote: 1698
-  - sliderChoose: 2
-    valueNote: 1800
-  - sliderChoose: 2
-    valueNote: 1902
-  - sliderChoose: 4
-    valueNote: 2038
-  - sliderChoose: 3
-    valueNote: 2174
-  - sliderChoose: 1
-    valueNote: 2310
-  - sliderChoose: 2
-    valueNote: 2446
-  - sliderChoose: 4
-    valueNote: 2582
-  - sliderChoose: 4
-    valueNote: 2718
-  - sliderChoose: 3
-    valueNote: 2854
-  - sliderChoose: 2
-    valueNote: 2990
-  - sliderChoose: 2
-    valueNote: 3126
-  - sliderChoose: 2
-    valueNote: 3262
-  - sliderChoose: 2
-    valueNote: 3398
-  - sliderChoose: 3
-    valueNote: 3415
-  - sliderChoose: 3
-    valueNote: 3449
-  - sliderChoose: 1
-    valueNote: 3483
-  - sliderChoose: 4
-    valueNote: 3517
-  - sliderChoose: 3
-    valueNote: 3551
-  - sliderChoose: 3
-    valueNote: 3585
-  - sliderChoose: 3
-    valueNote: 3619
-  - sliderChoose: 2
-    valueNote: 3653
-  - sliderChoose: 2
-    valueNote: 3687
-  - sliderChoose: 2
-    valueNote: 3721
-  - sliderChoose: 3
-    valueNote: 3755
-  - sliderChoose: 3
-    valueNote: 3789
-  - sliderChoose: 3
-    valueNote: 3823
-  - sliderChoose: 2
-    valueNote: 3857
-  - sliderChoose: 2
-    valueNote: 3891
-  - sliderChoose: 2
-    valueNote: 3925
-  - sliderChoose: 3
-    valueNote: 3959
-  - sliderChoose: 3
-    valueNote: 3993
-  - sliderChoose: 3
-    valueNote: 4027
-  - sliderChoose: 1
-    valueNote: 4061
-  - sliderChoose: 1
-    valueNote: 4095
-  - sliderChoose: 1
-    valueNote: 4129
-  - sliderChoose: 4
-    valueNote: 4163
-  - sliderChoose: 4
-    valueNote: 4197
-  - sliderChoose: 4
-    valueNote: 4231
+  partThree: []
   scoreText: {fileID: 1758939682}
   rankText: {fileID: 967731965}
   pointByEarly: 1
@@ -10475,7 +10323,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.21001, y: 104.77974}
+  m_AnchoredPosition: {x: 0.2101, y: 104.77974}
   m_SizeDelta: {x: 0.42, y: 0.1914}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1854468515
