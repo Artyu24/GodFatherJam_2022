@@ -13,6 +13,7 @@ public class Pausemenu : MonoBehaviour
     public GameObject Pause_Menu_UI;
     public Text countdown;
     public GameObject countdown_text;
+    public SoundManager music;
 
     private void Start()
     {
@@ -31,12 +32,11 @@ public class Pausemenu : MonoBehaviour
             if (Game_Paused)
             {
                 StartCoroutine(Countdown());
-                
+
             }
             else
             {
                 Pause();
-
             }
         }
 
@@ -48,15 +48,20 @@ public class Pausemenu : MonoBehaviour
     {
         Pause_Menu_UI.SetActive(false);
         Game_Paused = false;
+        
+        music.sounds[2].source.Play();
     }
 
     void Pause()
     {
         Pause_Menu_UI.SetActive(true);
         Game_Paused = true;
+
+        music.sounds[2].source.Pause();
     }
 
-   
+
+
     IEnumerator Countdown()
     {
         Pause_Menu_UI.SetActive(false);

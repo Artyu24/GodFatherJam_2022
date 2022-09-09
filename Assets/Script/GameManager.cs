@@ -52,9 +52,12 @@ public class GameManager : MonoBehaviour
     public int PerfectPoint { get => perfectPoint; set => perfectPoint = value; }
     public GameObject VictoryMenu;
 
+    private float delay;
+
     private void Start()
     {
         Application.targetFrameRate = 60;
+        delay = GameSettings.currentDelay;
 
         foreach (SliderNote note in partOne)
         {
@@ -88,25 +91,33 @@ public class GameManager : MonoBehaviour
     //ICI FAIRE LE DECALAGE
     private void Update()
     {
-        if(Pausemenu.Game_Paused == false)
+        if (delay <= 0)
         {
-            foreach (SliderNote note in partOne)
+            if (Pausemenu.Game_Paused == false)
             {
-                note.ValueNote -= speed * Time.deltaTime;
-                note.NotePosition = GetNotePosition(note);
-            }
-            foreach (SliderNote note in partTwo)
-            {
-                note.ValueNote -= speed * Time.deltaTime;
-                note.NotePosition = GetNotePosition(note);
+                foreach (SliderNote note in partOne)
+                {
+                    note.ValueNote -= speed * Time.deltaTime;
+                    note.NotePosition = GetNotePosition(note);
+                }
+                foreach (SliderNote note in partTwo)
+                {
+                    note.ValueNote -= speed * Time.deltaTime;
+                    note.NotePosition = GetNotePosition(note);
 
-            }
-            foreach (SliderNote note in partThree)
-            {
-                note.ValueNote -= speed * Time.deltaTime;
-                note.NotePosition = GetNotePosition(note);
+                }
+                foreach (SliderNote note in partThree)
+                {
+                    note.ValueNote -= speed * Time.deltaTime;
+                    note.NotePosition = GetNotePosition(note);
 
+                }
             }
+        }
+        else
+        {
+            delay -= Time.deltaTime * 1000f;
+            Debug.Log(delay);
         }
     }
 
