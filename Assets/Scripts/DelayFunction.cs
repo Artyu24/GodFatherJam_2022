@@ -12,12 +12,6 @@ public class DelayFunction : MonoBehaviour
     {
         currentDelay = GameSettings.currentDelay;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
 
     public void DelayLevel(float delayLevel)
