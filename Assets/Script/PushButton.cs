@@ -11,7 +11,9 @@ public class PushButton : MonoBehaviour
     [SerializeField] private Sprite tooEarlyImage, perfectImage, tooLateImage, missImage;
     [SerializeField] private Animator drumAnim;
     [SerializeField] private HealthSystem Health;
-    
+    [SerializeField] private Animator playerAnim;
+
+
     private void Update()
     {
         if (Input.GetKeyDown(leftUp) || Input.GetKeyDown(KeyCode.UpArrow))
@@ -45,6 +47,8 @@ public class PushButton : MonoBehaviour
         }
 
         drumAnim.SetTrigger("drum");
+        playerAnim.SetTrigger("AttackTrigger");
+
 
         if (noteFound.Count == 0)
         {
