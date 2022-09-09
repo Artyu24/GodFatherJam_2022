@@ -4718,10 +4718,10 @@ MonoBehaviour:
   pointByEarly: 1
   pointByLate: 1
   pointByPerfect: 5
-  rankS: 300
-  rankA: 200
-  rankB: 100
-  rankC: 50
+  rankS: 635
+  rankA: 528
+  rankB: 335
+  rankC: 264
   missPointText: {fileID: 229521972}
   tooEarlyPointText: {fileID: 2142674776}
   tooLatePointText: {fileID: 696363763}
